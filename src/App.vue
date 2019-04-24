@@ -7,10 +7,10 @@
         <code v-text="'<el-button>'"></code>
         below
       </p>
-      <el-button type="success" round v-on:click="hogefunc"
+      <el-button type="success" round @click="hogefunc">el-button</el-button>
+      <el-button type="success" round :disabled="isBtnDisable"
         >el-button</el-button
       >
-      <el-button type="success" round disabled>el-button</el-button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
@@ -23,7 +23,8 @@ export default {
   name: "app",
   data: function() {
     return {
-      x: 0
+      x: 0,
+      isBtnDisable: false
     };
   },
   components: {
@@ -32,6 +33,7 @@ export default {
   methods: {
     hogefunc: function() {
       this.x += 1;
+      this.isBtnDisable = !this.isBtnDisable;
       console.log(`## hogefunc ${this.x}`);
     }
   }
