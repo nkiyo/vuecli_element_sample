@@ -1,33 +1,46 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.png" />
     <div>
       <p>
         If Element is successfully added to this project, you'll see an
         <code v-text="'<el-button>'"></code>
         below
       </p>
-      <el-button type="success" round>el-button</el-button>
+      <el-button type="success" round v-on:click="hogefunc"
+        >el-button</el-button
+      >
       <el-button type="success" round disabled>el-button</el-button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'app',
+  name: "app",
+  data: function() {
+    return {
+      x: 0
+    };
+  },
   components: {
     HelloWorld
+  },
+  methods: {
+    hogefunc: function() {
+      this.x += 1;
+      console.log(`## hogefunc ${this.x}`);
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
