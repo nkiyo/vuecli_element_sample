@@ -7,8 +7,17 @@
         <code v-text="'<el-button>'"></code>
         below
       </p>
+      <el-dialog
+        title="hoge"
+        :visible.sync="isDialogVisible"
+        :before-close="onCloseDialog"
+      ></el-dialog>
       <el-button type="success" round @click="hogefunc">el-button</el-button>
-      <el-button type="success" round :disabled="isBtnDisable"
+      <el-button
+        type="success"
+        round
+        :disabled="isBtnDisable"
+        @click="isDialogVisible = true"
         >el-button</el-button
       >
     </div>
@@ -24,8 +33,20 @@ export default {
   data: function() {
     return {
       x: 0,
-      isBtnDisable: false
+      isBtnDisable: false,
+      isDialogVisible_: false
     };
+  },
+  computed: {
+    isDialogVisible: {
+      get: function() {
+        return this.isDialogVisible_;
+      },
+      set: function(newValue) {
+        this.isDialogVisible_ = newValue;
+        console.log(`## set isDialogVisible = ${newValue}`);
+      }
+    }
   },
   components: {
     HelloWorld
@@ -35,6 +56,10 @@ export default {
       this.x += 1;
       this.isBtnDisable = !this.isBtnDisable;
       console.log(`## hogefunc ${this.x}`);
+    },
+    onCloseDialog: function() {
+      this.isDialogVisible = false;
+      console.log(`## onCloseDialog ${this.isDialogVisible}`);
     }
   }
 };
