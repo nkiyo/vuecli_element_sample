@@ -13,6 +13,7 @@
         :before-close="onCloseDialog"
       ></el-dialog>
       <el-button type="success" round @click="hogefunc">el-button</el-button>
+      <!-- no-parsing-error </span> -->
       <el-button
         type="success"
         round
@@ -33,6 +34,8 @@ export default {
   data: function() {
     return {
       x: 0,
+      // no-reserved-key
+      // _x: 1,
       isBtnDisable: false,
       isDialogVisible_: false
     };
@@ -40,6 +43,17 @@ export default {
   computed: {
     isDialogVisible: {
       get: function() {
+        // no-async-in-computed-properties
+        // setInterval( function() {
+        //  console.log(`hoge`);
+        // }, 1000);
+        // no-side-effects-in-computed-properties
+        // this.isDialogVisible_ = false;
+        const x = 1;
+        console.log(`${x}`);
+        if (x === 0) {
+          return false;
+        }
         return this.isDialogVisible_;
       },
       set: function(newValue) {
@@ -61,6 +75,10 @@ export default {
       this.isDialogVisible = false;
       console.log(`## onCloseDialog ${this.isDialogVisible}`);
     }
+    // no-dupe-keys
+    // x: function() {
+    //  console.log(`hoge`);
+    // }
   }
 };
 </script>

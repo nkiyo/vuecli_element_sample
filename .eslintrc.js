@@ -3,10 +3,11 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ["airbnb-base", "plugin:vue/essential", "@vue/prettier"],
+  extends: ["airbnb-base", "eslint:recommended", "plugin:vue/essential", "@vue/prettier"],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "spaced-comment": ["error", "always"]
   },
   parserOptions: {
     parser: "babel-eslint"
