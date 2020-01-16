@@ -31,7 +31,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "app",
-  data: function() {
+  data() {
     return {
       x: 0,
       // no-reserved-key
@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     isDialogVisible: {
-      get: function() {
+      get() {
         // no-async-in-computed-properties
         // setInterval( function() {
         //  console.log(`hoge`);
@@ -50,13 +50,16 @@ export default {
         // no-side-effects-in-computed-properties
         // this.isDialogVisible_ = false;
         const x = 1;
-        console.log(`${x}`);
+        const obj = {
+          x
+        };
+        console.log(`${x} ${obj}`);
         if (x === 0) {
           return false;
         }
         return this.isDialogVisible_;
       },
-      set: function(newValue) {
+      set(newValue) {
         this.isDialogVisible_ = newValue;
         console.log(`## set isDialogVisible = ${newValue}`);
       }
@@ -66,12 +69,12 @@ export default {
     HelloWorld
   },
   methods: {
-    hogefunc: function() {
+    hogefunc() {
       this.x += 1;
       this.isBtnDisable = !this.isBtnDisable;
       console.log(`## hogefunc ${this.x}`);
     },
-    onCloseDialog: function() {
+    onCloseDialog() {
       this.isDialogVisible = false;
       console.log(`## onCloseDialog ${this.isDialogVisible}`);
     }
