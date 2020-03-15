@@ -50,10 +50,10 @@ export default {
         // no-side-effects-in-computed-properties
         // this.isDialogVisible_ = false;
         const x = 1;
-        const obj = {
+        const objHoge_ = {
           x
         };
-        console.log(`${x} ${obj}`);
+        console.log(`${x} ${objHoge_}`);
         if (x === 0) {
           return false;
         }

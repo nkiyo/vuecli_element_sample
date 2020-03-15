@@ -13,6 +13,9 @@ module.exports = {
       "ignoreReadBeforeAssign": true
     }],
     "object-shorthand": ["error", "always"],
+    "camelcase": ["error", {
+      "properties": "always",
+    }],
   },
   parserOptions: {
     parser: "babel-eslint"
